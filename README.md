@@ -119,38 +119,6 @@ untouched, so the derivation can be audited and reversed.
 | `material_families` | `materia_prima` | Composition string tokenised and mapped onto 16 broad families with an ordered keyword lexicon. A record may belong to several families. |
 | `_search_text` | 11 text fields | Accent-folded, lower-cased concatenation so `Bogota` matches `Bogotá` and `piano` finds the piano records. |
 
-**Departures from the brief in `Context.pdf`, and why**
-
-1. **Time axis.** The brief filters on *publication year* and casts it as an
-   `int`. The field is not an integer — it contains `1824-1825`, `1883-1884`
-   and `c. 1884`, so the brief's `astype(int)` raises. More importantly,
-   publication lags observation by decades: Le Moyne travelled in 1828–1839 and
-   published in **1880**; Ancízar travelled in 1850–1851 and published in 1853.
-   The app therefore defaults to the **journey year**, which dates the
-   observation, and keeps **publication year** as a switchable axis for readers
-   who want the brief's framing. Both are computed for every record.
-2. **Preservation pie.** The field holds 124 distinct free-text strings
-   (`Low (organic leather)`, `Partial (brass/bronze stirrups and spurs)`, ...).
-   A pie of 124 slices is unreadable, and the brief's colour map only defines
-   High/Partial/Low/N/A, so the app collapses the field to those four classes
-   plus `Unspecified` and keeps the original coding in the table.
-3. **Raw materials bar chart.** `materia_prima` has 138 distinct composition
-   strings across 138 rows, so `value_counts()` would plot 138 bars of height 1.
-   The app tokenises the field into material families (wood, leather and hide,
-   iron and steel, ceramic and brick, textiles and plant fibre, ...) and counts
-   records mentioning each. The chart title and caption state that a record can
-   cite several families and that the raw field is available verbatim in the
-   table.
-4. **Search scope.** The brief's search box filters only the evidence table,
-   which is preserved. It is accent-insensitive and also covers the original
-   term, the glossary term, the raw materials and the author — not just the
-   visible columns.
-5. **Small additions** (all additive, none changes the requested views):
-   colouring the timeline by descriptive category, an exact-year / decade
-   resolution switch (the sampling is sparse: 16 sampled years over 90),
-   source-language and corpus-role filters, a reset button, CSV export of the
-   current selection, a card-reading view, and the About panel documenting the
-   coding.
 
 Numbers used in the app and tests: 138 records · 17 travelogues · 117 unique
 glossary terms · 81 *Tránsito* / 57 *Maneras de habitar* records · preservation
@@ -190,13 +158,6 @@ streamlit 1.66.1 · pandas 3.1.0 · plotly 7.1.0 · Python 3.12.14
   quoting a family count.
 - `anio_jornada` sometimes spans a whole career (Bennett 1847–1877); its
   midpoint is a coarse anchor, documented by the caption and the About panel.
-
-## Roadmap
-
-- A route-node view from `04_mencion_referentes.csv` (145 mentions, 83
-  landmarks) joined to historical cartography.
-- Decade/period aggregation for the timeline, with confidence bands.
-- A benchmark panel comparing the human coding with an LLM extraction pipeline.
 
 ---
 
