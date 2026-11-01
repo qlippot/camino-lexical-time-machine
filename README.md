@@ -11,6 +11,12 @@ deposited on Zenodo ([10.5281/zenodo.23753244](https://doi.org/10.5281/zenodo.23
 CC BY 4.0). The dashboard is a companion to the JOAD data paper, not a
 replacement for reading the sources.
 
+**[Open the live app →](https://camino-lexical-time-machine.streamlit.app)**
+&nbsp;·&nbsp; **[Source repository](https://github.com/qlippot/camino-lexical-time-machine)**
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-live_demo-FF4B4B?logo=streamlit&logoColor=white)](https://camino-lexical-time-machine.streamlit.app)
+[![Data DOI](https://img.shields.io/badge/Data-10.5281%2Fzenodo.23753244-1f6f8b)](https://doi.org/10.5281/zenodo.23753244)
+
 ---
 
 ## Preview
@@ -37,6 +43,9 @@ the full corpus.
 ---
 
 ## Quick start
+
+**Deployed:** <https://camino-lexical-time-machine.streamlit.app> (Streamlit
+Community Cloud, built from `main`). Run it locally with the steps below.
 
 Requires **Python 3.11+** (tested on 3.12).
 
@@ -169,3 +178,6 @@ streamlit 1.66.1 · pandas 3.1.0 · plotly 7.1.0 · Python 3.12.14
 > https://doi.org/10.5281/zenodo.23753244
 
 If you use the dashboard, please cite the dataset above and link this repository.
+
+The dashboard is deployed at
+<https://camino-lexical-time-machine.streamlit.app>.
